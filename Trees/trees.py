@@ -38,4 +38,4 @@ class TreeFlyer():
 if __name__ == '__main__':
     lines = FileReader.read_file("input.txt")
     product = TreeFlyer.all_of_the_slopes(lines)
-    print(f"The product of the number of trees is {product}")
+    print(product)
