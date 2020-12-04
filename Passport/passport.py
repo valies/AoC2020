@@ -1,5 +1,12 @@
 import re
 
+ecl_matches = ["amb","blu","brn","gry","grn","hzl","oth"]
+four_digits_regex = re.compile(r'^\d{4}$')
+cm_regex = re.compile(r'\d+cm$')
+in_regex = re.compile(r'\d+in$')
+hcl_regex = re.compile('^#[A-Fa-f0-9]{6}$')
+pid_regex = re.compile(r'^\d{9}$')
+
 class FileReader():
 
     @classmethod
@@ -12,6 +19,7 @@ class FileReader():
         
 
 class PassportChecker():
+
 
     @classmethod
     def identify_passports(cls, lines):
@@ -56,11 +64,11 @@ class PassportChecker():
     @classmethod
     def validate_passport(cls, passport):
         ecl_matches = ["amb","blu","brn","gry","grn","hzl","oth"]
-        four_digits_regex = re.compile(r'^\d{4}$')
-        cm_regex = re.compile(r'\d+cm$')
-        in_regex = re.compile(r'\d+in$')
-        hcl_regex = re.compile('^#[A-Fa-f0-9]{6}$')
-        pid_regex = re.compile(r'^\d{9}$')
+        global four_digits_regex
+        global cm_regex
+        global in_regex
+        global hcl_regex
+        global pid_regex
         elements = dict(y.split(":") for y in passport.split(" "))
         elements_sorted = dict(sorted(elements.items(), key=lambda x: x[0]))
         for key, value in elements_sorted.items():
