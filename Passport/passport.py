@@ -7,6 +7,7 @@ in_regex = re.compile(r'\d+in$')
 hcl_regex = re.compile('^#[A-Fa-f0-9]{6}$')
 pid_regex = re.compile(r'^\d{9}$')
 
+
 class FileReader():
 
     @classmethod
@@ -19,7 +20,6 @@ class FileReader():
         
 
 class PassportChecker():
-
 
     @classmethod
     def identify_passports(cls, lines):
@@ -37,7 +37,6 @@ class PassportChecker():
                     passport += " " + line.rstrip()
         return passports
 
-
     @classmethod
     def validate_passports_v1(cls, passports):
         valid_passports = 0
@@ -47,7 +46,6 @@ class PassportChecker():
                 if all(x in passport for x in matches):
                     valid_passports += 1
         return valid_passports
-
 
     @classmethod
     def validate_passports_v2(cls, passports):
@@ -59,7 +57,6 @@ class PassportChecker():
                     if PassportChecker.validate_passport(passport):
                         valid_passports +=1
         return valid_passports
-
 
     @classmethod
     def validate_passport(cls, passport):
