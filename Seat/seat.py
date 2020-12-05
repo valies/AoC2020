@@ -28,7 +28,7 @@ class SeatFinder():
     @classmethod
     def get_occupied_seat(cls, line):
         line = line.replace("F", "0").replace("B", "1").replace("L", "0").replace("R", "1")
-        return (int(line[:7], 2) * 8) + int(line[7:], 2)
+        return int(line, 2)
         
 
 if __name__ == '__main__':
