@@ -33,9 +33,7 @@ class CustomsQuestionaire():
         lines.append("end")
         for line in lines:
             if line == "\n" or line == "" or line == "end":
-                string = ""
-                for person_answer in person_answers:
-                    string += person_answer
+                string = "".join(person_answers)
                 number_of_persons = len(person_answers)
                 unique_answers = set(string)
                 for a in unique_answers:
