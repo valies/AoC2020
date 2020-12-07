@@ -1,5 +1,3 @@
-from functools import lru_cache
-
 class FileReader():
 
     @classmethod
