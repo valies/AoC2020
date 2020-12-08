@@ -93,7 +93,7 @@ class Accumulator():
             
 
 if __name__ == '__main__':
-    lines = FileReader.read_file("accumulator/input.txt")
+    lines = FileReader.read_file("gameConsole/input.txt")
     instructions = Accumulator.form_instructions(lines)
     print(Accumulator.process_part1(instructions))
     print(Accumulator.process_part2(lines))
