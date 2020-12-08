@@ -14,7 +14,6 @@ class Accumulator():
     @classmethod
     def form_instructions(cls, lines):
         instructions = []
-
         for i in range(len(lines)):
             line = lines[i]
             instruction = line.split(" ")[0]
