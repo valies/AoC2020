@@ -23,9 +23,9 @@ class BagProcessing():
             splitted_inner_bags = splitted_line[1].replace("bags", "").replace("bag", "").replace(".", "").split(",")
             for inner_bag in splitted_inner_bags:
                 inner_bag = inner_bag.strip()
-                bag_dictionary = {"bag": inner_bag[2:], "count": inner_bag[0]}
+                bag_dictionary = {"bag": inner_bag[2:], "counter": inner_bag[0]}
                 inner_bags.append(bag_dictionary)
-            bag_tree = {"key": key, "bags": inner_bags}
+            bag_tree = {"outer": key, "inner": inner_bags}
             bags_tree.append(bag_tree)
         return bags_tree
 
@@ -46,11 +46,10 @@ class BagProcessing():
         search_bag = bag
         global outer_bags
         for bags_tree_elements in bags_tree:
-            outer_bag_values = list(bags_tree_elements.values())
-            for bag in outer_bag_values[1]:
+            for bag in bags_tree_elements["inner"]:
                 inner_bag = list(bag.values())[0]
                 if search_bag == inner_bag:
-                    outer_bag = list(bags_tree_elements.values())[0]
+                    outer_bag = bags_tree_elements["outer"]
                     outer_bags.append(outer_bag)
                     BagProcessing.process_bags_part1(outer_bag, bags_tree)
 
@@ -59,12 +58,12 @@ class BagProcessing():
         search_bag = bag
         global inner_bags_counter
         for bags_tree_elements in bags_tree:
-            outer_bag = list(bags_tree_elements.values())[0]
+            outer_bag = bags_tree_elements["outer"]
             if outer_bag == search_bag:
-                inner_bags = list(bags_tree_elements.values())[1]
+                inner_bags = bags_tree_elements["inner"]
                 for inner_bag in inner_bags:
-                    counter = list(inner_bag.values())[1]
-                    this_bag = list(inner_bag.values())[0]
+                    counter = inner_bag["counter"]
+                    this_bag = inner_bag["bag"]
                     if this_bag != ' other' and counter != "n":
                         inner_bags_counter += int(counter)
                         for i in range(int(counter)):
