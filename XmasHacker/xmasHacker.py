@@ -20,11 +20,7 @@ class XmasHacker():
             number = lines[i+preambles_length]
             something_found = 0
             for preamble in preambles:
-                preambles_without_preamble = copy.deepcopy(preambles)
-                for element in preambles:
-                    if preamble == element:
-                        preambles_without_preamble.remove(preamble)
-                        break
+                preambles_without_preamble = list(filter(lambda element: element != preamble, preambles))
                 if number - preamble in preambles_without_preamble:
                     something_found += 1
             if something_found == 0:
