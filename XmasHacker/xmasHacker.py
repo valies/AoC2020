@@ -34,36 +34,21 @@ class XmasHacker():
 
     @classmethod
     def find_sum_part2(cls, lines, preambles_length):
-        number_index = 0
-        for i in range(len(lines)-preambles_length):
-            preambles = lines[i:i+preambles_length]
-            number = lines[i+preambles_length]
-            something_found = 0
-            for preamble in preambles:
-                preambles_without_preamble = copy.deepcopy(preambles)
-                for element in preambles:
-                    if preamble == element:
-                        preambles_without_preamble.remove(preamble)
-                        break
-                if number - preamble in preambles_without_preamble:
-                    something_found += 1
-            if something_found == 0:
-                counter = 0
-                number_index = i+preambles_length
-                while True:
-                    sum = 0
-                    previous_lines = lines[counter:number_index]
-                    numbers = []
-                    for j in range(len(previous_lines)):
-                        sum += previous_lines[j+counter]
-                        numbers.append(previous_lines[j+counter])
-                        if sum == number:
-                            result = min(numbers) + max(numbers)
-                            return result
-                        elif sum > number:
-                            counter += 1
-                            numbers.clear()
-                            break
+        number = XmasHacker.find_culprit_part1(lines, preambles_length)
+        counter = 0
+        while True:
+            sum = 0
+            numbers = []
+            for j in range(len(lines)):
+                sum += lines[j+counter]
+                numbers.append(lines[j+counter])
+                if sum == number:
+                    result = min(numbers) + max(numbers)
+                    return result
+                elif sum > number:
+                    counter += 1
+                    numbers.clear()
+                    break
         return "you should not be here"
 
             
