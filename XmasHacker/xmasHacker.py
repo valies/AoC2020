@@ -35,18 +35,18 @@ class XmasHacker():
     @classmethod
     def find_sum_part2(cls, lines, preambles_length):
         number = XmasHacker.find_culprit_part1(lines, preambles_length)
-        counter = 0
+        start = 0
         while True:
             sum = 0
             numbers = []
-            for j in range(len(lines)):
-                sum += lines[j+counter]
-                numbers.append(lines[j+counter])
+            for j in range(start, len(lines)):
+                sum += lines[j]
+                numbers.append(lines[j])
                 if sum == number:
                     result = min(numbers) + max(numbers)
                     return result
                 elif sum > number:
-                    counter += 1
+                    start += 1
                     numbers.clear()
                     break
         raise Exception("No culprit found.")
