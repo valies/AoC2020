@@ -1,5 +1,5 @@
 import unittest
-from XmasHacker.xmasHacker import XmasHacker
+from Day9.xmasHacker import XmasHacker
 
 
 class TestXmasHacker(unittest.TestCase):

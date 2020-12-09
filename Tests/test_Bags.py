@@ -1,5 +1,5 @@
 import unittest
-from Bags.bags import BagProcessing
+from Day7.bags import BagProcessing
 
 
 class TestBagProcessing(unittest.TestCase):

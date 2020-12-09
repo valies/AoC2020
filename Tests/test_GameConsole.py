@@ -1,5 +1,5 @@
 import unittest
-from GameConsole.gameConsole import Accumulator
+from Day8.gameConsole import Accumulator
 
 
 class TestGameConsole(unittest.TestCase):

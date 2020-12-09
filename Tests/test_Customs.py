@@ -1,5 +1,5 @@
 import unittest
-from Customs.customs import CustomsQuestionaire
+from Day6.customs import CustomsQuestionaire
 
 
 class TestCustomsIdentifier(unittest.TestCase):

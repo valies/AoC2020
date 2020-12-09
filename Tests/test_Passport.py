@@ -1,5 +1,5 @@
 import unittest
-from Passport.passport import PassportChecker
+from Day4.passport import PassportChecker
 
 
 class TestPassportChecker(unittest.TestCase):

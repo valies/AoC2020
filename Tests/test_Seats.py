@@ -1,5 +1,5 @@
 import unittest
-from Seat.seat import SeatFinder
+from Day5.seat import SeatFinder
 
 
 class TestSeatFinder(unittest.TestCase):

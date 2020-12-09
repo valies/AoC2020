@@ -1,6 +1,6 @@
 import unittest
-from PasswordPolicy.passwordPolicy import PasswordPolicy
-from PasswordPolicy.passwordPolicy import Parser
+from Day2.passwordPolicy import PasswordPolicy
+from Day2.passwordPolicy import Parser
 
 
 class TestPasswordPolicy(unittest.TestCase):

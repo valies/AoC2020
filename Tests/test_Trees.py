@@ -1,5 +1,5 @@
 import unittest
-from Trees.trees import TreeFlyer
+from Day3.trees import TreeFlyer
 
 
 class TestTreeFlyer(unittest.TestCase):
