@@ -22,7 +22,7 @@ class SeatFinder():
         for seat in range(min_seat, max_seat):
             if min_seat < seat < max_seat and not(seat in occupied_seats) and seat-1 in occupied_seats and seat+1 in occupied_seats:
                 return seat
-        return "no seat found"
+        raise Exception("No seat found.")
 
 
     @classmethod

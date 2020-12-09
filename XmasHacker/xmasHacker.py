@@ -29,7 +29,7 @@ class XmasHacker():
                     something_found += 1
             if something_found == 0:
                 return number
-        return "you should not be here"
+        raise Exception("No culprit found.")
 
 
     @classmethod
@@ -49,7 +49,7 @@ class XmasHacker():
                     counter += 1
                     numbers.clear()
                     break
-        return "you should not be here"
+        raise Exception("No culprit found.")
 
             
 if __name__ == '__main__':
