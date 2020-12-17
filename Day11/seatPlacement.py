@@ -49,11 +49,11 @@ class SeatPlacement():
                 for j in range(len(row)):
                     seat = list(seats[i])[j]
                     if seat != ".":
-                        visible_occupied_seats = SeatPlacement.get_visible_occupied_seats(i, j, seats)
-                        if seat == "L" and "#" not in visible_occupied_seats:
+                        visible_seats = SeatPlacement.get_visible_seats(i, j, seats)
+                        if seat == "L" and "#" not in visible_seats:
                             new_seats[i] = SeatPlacement.toggle_seat_in_row(row, j)
                             row = new_seats[i]
-                        elif seat == "#" and visible_occupied_seats.count("#") >= 5:
+                        elif seat == "#" and visible_seats.count("#") >= 5:
                             new_seats[i] = SeatPlacement.toggle_seat_in_row(row, j)
                             row = new_seats[i]
             if seats == new_seats:
@@ -75,7 +75,7 @@ class SeatPlacement():
 
 
     @classmethod
-    def get_visible_occupied_seats(cls, row_index, column_index, seats):
+    def get_visible_seats(cls, row_index, column_index, seats):
         visible_seats = []
         i = row_index
         j = column_index
