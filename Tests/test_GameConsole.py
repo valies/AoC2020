@@ -16,9 +16,9 @@ class TestGameConsole(unittest.TestCase):
             "acc +6"]
         instructions = Accumulator.form_instructions(lines)
         result = Accumulator.process_part1(instructions)
-        self.assertEqual(result, 4, "Should be the same.")
+        self.assertEqual(result, 5, "Should be the same.")
 
-    def test_accumulator_part1(self):
+    def test_accumulator_part2(self):
         lines = ["nop +0",
             "acc +1",
             "jmp +4",
