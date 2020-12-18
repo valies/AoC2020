@@ -35,11 +35,11 @@ class FerryNavigation():
             elif command == "F":
                 if face == "N":
                     position_north += move
-                if face == "E":
+                elif face == "E":
                     position_east += move
-                if face == "S":
+                elif face == "S":
                     position_north -= move
-                if face == "W":
+                elif face == "W":
                     position_east -= move
         return abs(position_north) + abs(position_east)
 
