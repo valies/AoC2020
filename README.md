@@ -1,2 +1,2 @@
-# Advent of Code 2020 [![CircleCI](https://circleci.com/gh/valies/AoC2020.svg?style=svg&circle-token=d8161c128fd8351e3a4ebbae43dd3d64932b0db4)](https://app.circleci.com/pipelines/github/valies/AoC2020)
+# Advent of Code 2020 [![CircleCI](https://circleci.com/gh/valies/AoC2020.svg?style=svg&circle-token=d8161c128fd8351e3a4ebbae43dd3d64932b0db4)](https://app.circleci.com/pipelines/github/valies/AoC2020) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=valies_AoC2020&metric=alert_status)](https://sonarcloud.io/dashboard?id=valies_AoC2020)
 See https://adventofcode.com/ 
