@@ -30,7 +30,7 @@ class TestBagProcessing(unittest.TestCase):
             "dotted black bags contain no other bags."]
         bags_tree = BagProcessing.form_bags_tree(lines)
         result = BagProcessing.number_of_bags_part2(bags_tree)
-        self.assertEqual(result, 31, "Should be the same.")
+        self.assertEqual(result, 32, "Should be the same.")
 
 
 if __name__ == '__main__':
