@@ -9,20 +9,16 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Pipenv
+          name: Install Flake8
           command: |
-            sudo pip install pipenv
-            pipenv install
+            python3 -m pip install flake8
       - run:
-          name: Run Linting
+          name: Run Flake8
           command: |
-            set +e
-            pipenv run pylint test_helpers
-            echo "Debug"
-            exit 0
+            python3 -m flake8
       - run:
-          command: python -m unittest discover -s Tests -p 'test_*.py'
-          name: Test
+          command: python3 -m unittest discover -s Tests -p 'test_*.py'
+          name: Run tests
 
 workflows:
   main:
