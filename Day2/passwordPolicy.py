@@ -70,8 +70,8 @@ class PasswordPolicy():
 
     def validate_password_v2(self):
         if len(self.password) >= self.first_int and len(self.password) >= self.second_int:
-            character1 = self.password[self.first_int-1]
-            character2 = self.password[self.second_int-1]
+            character1 = self.password[self.first_int - 1]
+            character2 = self.password[self.second_int - 1]
             if (character1 == self.character) ^ (character2 == self.character):
                 return 1
         return 0

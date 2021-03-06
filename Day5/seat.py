@@ -7,7 +7,7 @@ class FileReader():
             for line in my_file:
                 a.append(line.rstrip())
         return a
-        
+
 
 class SeatFinder():
 
@@ -20,16 +20,15 @@ class SeatFinder():
         max_seat = max(occupied_seats)
         print(max_seat)
         for seat in range(min_seat, max_seat):
-            if min_seat < seat < max_seat and not(seat in occupied_seats) and seat-1 in occupied_seats and seat+1 in occupied_seats:
+            if min_seat < seat < max_seat and not(seat in occupied_seats) and seat - 1 in occupied_seats and seat + 1 in occupied_seats:
                 return seat
         raise Exception("No seat found.")
-
 
     @classmethod
     def get_occupied_seat(cls, line):
         line = line.replace("F", "0").replace("B", "1").replace("L", "0").replace("R", "1")
         return int(line, 2)
-        
+
 
 if __name__ == '__main__':
     lines = FileReader.read_file("seat/input.txt")

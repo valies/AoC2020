@@ -7,9 +7,11 @@ class FileReader():
             for line in my_file:
                 a.append(line.rstrip())
         return a
-        
+
+
 outer_bags = []
 inner_bags_counter = 0
+
 
 class BagProcessing():
 
@@ -69,7 +71,7 @@ class BagProcessing():
                         for i in range(int(counter)):
                             BagProcessing.process_bags_part2(this_bag, bags_tree)
 
-            
+
 if __name__ == '__main__':
     lines = FileReader.read_file("bags/input.txt")
     bags_tree = BagProcessing.form_bags_tree(lines)

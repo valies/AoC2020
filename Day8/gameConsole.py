@@ -21,7 +21,6 @@ class Accumulator():
             instruction = {"instruction": instruction, "move": move, "used": False}
             instructions.append(instruction)
         return instructions
-            
 
     @classmethod
     def process_part1(cls, instructions):
@@ -44,7 +43,6 @@ class Accumulator():
                     instruction_index += 1
         return accumulator
 
-
     @classmethod
     def process_part2(cls, lines):
         these_instructions = Accumulator.form_instructions(lines)
@@ -66,7 +64,7 @@ class Accumulator():
                 move = this_instruction["move"]
                 instruction = this_instruction["instruction"]
                 used = this_instruction["used"]
-            if instruction_index == len(these_instructions)-1:
+            if instruction_index == len(these_instructions) - 1:
                 if instruction == "acc":
                     accumulator += move
                 return accumulator
@@ -89,7 +87,7 @@ class Accumulator():
                 elif instruction == "nop":
                     instruction_index += 1
         return "you should not be here"
-            
+
 
 if __name__ == '__main__':
     lines = FileReader.read_file("gameConsole/input.txt")

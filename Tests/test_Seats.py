@@ -28,4 +28,3 @@ class TestSeatFinder(unittest.TestCase):
         code = "BBBBBBBRRR"
         result = SeatFinder.get_occupied_seat(code)
         self.assertEqual(result, (127 * 8) + 7, "Should be the same.")
-

@@ -5,10 +5,10 @@ class FileReader():
         a = []
         with open(file) as my_file:
             for line in my_file:
-                text = line.rstrip().replace("S", "N-").replace("W", "E-").replace("L","R-")
+                text = line.rstrip().replace("S", "N-").replace("W", "E-").replace("L", "R-")
                 a.append(text)
         return a
-        
+
 
 class FerryNavigation():
 
@@ -21,7 +21,7 @@ class FerryNavigation():
         for line in lines:
             command = line[0]
             move = int(line[1:])
-            turn = int(move/90)
+            turn = int(move / 90)
             if command == "R":
                 face_index = faces.index(face)
                 new_index = face_index + turn
@@ -42,7 +42,6 @@ class FerryNavigation():
                 elif face == "W":
                     position_east -= move
         return abs(position_north) + abs(position_east)
-
 
     @classmethod
     def navigate_part2(cls, lines):
@@ -74,7 +73,7 @@ class FerryNavigation():
                 ship_east += move * waypoint_east
         return abs(ship_north) + abs(ship_east)
 
-            
+
 if __name__ == '__main__':
     lines = FileReader.read_file("Day12/input.txt")
     print(FerryNavigation.navigate_part1(lines))

@@ -1,6 +1,6 @@
 import re
 
-ecl_matches = ["amb","blu","brn","gry","grn","hzl","oth"]
+ecl_matches = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
 four_digits_regex = re.compile(r'^\d{4}$')
 cm_regex = re.compile(r'\d+cm$')
 in_regex = re.compile(r'\d+in$')
@@ -17,7 +17,7 @@ class FileReader():
             for line in my_file:
                 a.append(line)
         return a
-        
+
 
 class PassportChecker():
 
@@ -30,7 +30,7 @@ class PassportChecker():
             if line == "\n" or line == "" or line == "end":
                 passports.append(passport)
                 passport = ""
-            else: 
+            else:
                 if passport == "":
                     passport += line.rstrip()
                 else:
@@ -40,9 +40,9 @@ class PassportChecker():
     @classmethod
     def validate_passports_v1(cls, passports):
         valid_passports = 0
-        matches = ["byr:","iyr:","eyr:","hgt:","hcl:","ecl:","pid:"]
+        matches = ["byr:", "iyr:", "eyr:", "hgt:", "hcl:", "ecl:", "pid:"]
         for passport in passports:
-            if passport != "\n" and passport != None:
+            if passport != "\n" and passport is not None:
                 if all(x in passport for x in matches):
                     valid_passports += 1
         return valid_passports
@@ -50,17 +50,17 @@ class PassportChecker():
     @classmethod
     def validate_passports_v2(cls, passports):
         valid_passports = 0
-        key_matches = ["byr:","iyr:","eyr:","hgt:","hcl:","ecl:","pid:"]
+        key_matches = ["byr:", "iyr:", "eyr:", "hgt:", "hcl:", "ecl:", "pid:"]
         for passport in passports:
-            if passport != "\n" and passport != None:
+            if passport != "\n" and passport is not None:
                 if all(x in passport for x in key_matches):
                     if PassportChecker.validate_passport(passport):
-                        valid_passports +=1
+                        valid_passports += 1
         return valid_passports
 
     @classmethod
     def validate_passport(cls, passport):
-        ecl_matches = ["amb","blu","brn","gry","grn","hzl","oth"]
+        ecl_matches = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
         global four_digits_regex
         global cm_regex
         global in_regex
@@ -77,7 +77,7 @@ class PassportChecker():
                 return False
             if key == "hcl" and not (re.match(hcl_regex, value)):
                 return False
-            if key == "hgt" and not (((re.match(cm_regex, value) and 150 <= int(value.replace("cm","")) <= 193) or (re.match(in_regex, value) and 59 <= int(value.replace("in","")) <= 76))):
+            if key == "hgt" and not (((re.match(cm_regex, value) and 150 <= int(value.replace("cm", "")) <= 193) or (re.match(in_regex, value) and 59 <= int(value.replace("in", "")) <= 76))):
                 return False
             if key == "iyr" and not (re.match(four_digits_regex, value) and 2010 <= int(value) <= 2020):
                 return False

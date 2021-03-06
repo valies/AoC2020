@@ -1,5 +1,3 @@
-import copy
-
 class FileReader():
 
     @classmethod
@@ -9,15 +7,15 @@ class FileReader():
             for line in my_file:
                 a.append(int(line.rstrip()))
         return a
-        
+
 
 class XmasHacker():
 
     @classmethod
     def find_culprit_part1(cls, lines, preambles_length):
         for i in range(len(lines)):
-            preambles = lines[i:i+preambles_length]
-            number = lines[i+preambles_length]
+            preambles = lines[i:i + preambles_length]
+            number = lines[i + preambles_length]
             something_found = 0
             for preamble in preambles:
                 preambles_without_preamble = list(filter(lambda element: element != preamble, preambles))
@@ -26,7 +24,6 @@ class XmasHacker():
             if something_found == 0:
                 return number
         raise Exception("No culprit found.")
-
 
     @classmethod
     def find_sum_part2(cls, lines, preambles_length):
@@ -47,7 +44,7 @@ class XmasHacker():
                     break
         raise Exception("No culprit found.")
 
-            
+
 if __name__ == '__main__':
     lines = FileReader.read_file("xmasHacker/input.txt")
     print(XmasHacker.find_culprit_part1(lines, 25))

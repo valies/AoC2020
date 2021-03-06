@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Run Flake8
           command: |
-            python3 -m flake8
+            python3 -m flake8 --ignore=E501
       - run:
           command: python3 -m unittest discover -s Tests -p 'test_*.py'
           name: Run tests

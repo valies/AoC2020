@@ -7,7 +7,7 @@ class FileReader():
             for line in my_file:
                 a.append(line)
         return a
-        
+
 
 class CustomsQuestionaire():
 
@@ -21,10 +21,9 @@ class CustomsQuestionaire():
                 number_of_answers = len(set(group_answers))
                 sum += number_of_answers
                 group_answers = []
-            else: 
+            else:
                 group_answers.extend(char for char in line.rstrip())
         return sum
-
 
     @classmethod
     def get_result_part2(cls, lines):
@@ -40,7 +39,7 @@ class CustomsQuestionaire():
                     if string.count(a) >= number_of_persons:
                         sum += 1
                 person_answers = []
-            else: 
+            else:
                 person_answers.append("".join(set(line.rstrip())))
         return sum
 

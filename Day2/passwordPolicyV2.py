@@ -10,7 +10,7 @@ with open("input.txt") as my_file:
         if int(integers[0]) <= occurrences <= int(integers[1]):
             counter_part1 += 1
         if int(integers[0]) <= len(password) >= int(integers[1]):
-            if (password[int(integers[0])-1] == character) ^ (password[int(integers[1])-1] == character):
+            if (password[int(integers[0]) - 1] == character) ^ (password[int(integers[1]) - 1] == character):
                 counter_part2 += 1
 print(counter_part1)
 print(counter_part2)

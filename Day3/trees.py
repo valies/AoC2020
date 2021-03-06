@@ -7,7 +7,7 @@ class FileReader():
             for line in my_file:
                 a.append(line.rstrip())
         return a
-        
+
 
 class TreeFlyer():
 
