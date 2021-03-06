@@ -9,6 +9,18 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Pipenv
+          command: |
+            sudo pip install pipenv
+            pipenv install
+      - run:
+          name: Run Linting
+          command: |
+            set +e
+            pipenv run pylint test_helpers
+            echo "Debug"
+            exit 0
+      - run:
           command: python -m unittest discover -s Tests -p 'test_*.py'
           name: Test
 
