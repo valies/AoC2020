@@ -20,6 +20,7 @@ jobs:
   test:
     executor: python/default
     steps:
+      - checkout
       - run:
           command: python3 -m unittest discover -s Tests -p 'test_*.py'
           name: Run tests
